@@ -1,2 +1,2 @@
 # test-pr-lock
-test
+test2
