@@ -1,15 +1,14 @@
 name: Let workflow failed if conversation is unlocked
 on:
-  pull_request:
-    types: [opened, edited, reopened, locked, unlocked, synchronize]
   workflow_run:
-    workflows: 
-      - Lock pull request when approved
+    workflows: ["PR Tasks Completed Check"]
     types:
-      - "completed"
+      - completed
+
 jobs:
-  check-locked:
+  on-success:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Let workflow failed if conversation is unlocked
         if: ${{github.event.pull_request.locked != true}}
