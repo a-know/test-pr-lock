@@ -3,6 +3,9 @@ on:
   workflow_run:
     workflows: 
       - "PR Tasks Completed Check"
+    branches:
+      - '*'
+      - '!main'
     types:
       - "completed"
 jobs:
