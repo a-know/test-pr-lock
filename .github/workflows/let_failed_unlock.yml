@@ -4,7 +4,6 @@ on:
     workflows: ["PR Tasks Completed Check"]
     types:
       - completed
-      - requested
 
 jobs:
   on-success:
