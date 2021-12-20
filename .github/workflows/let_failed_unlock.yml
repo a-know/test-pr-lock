@@ -1,10 +1,8 @@
 name: Let workflow failed if conversation is unlocked
 on:
-  pull_request:
-    types: [opened, edited, reopened, locked, unlocked, synchronize]
   workflow_run:
     workflows: 
-      - Lock pull request when approved
+      - "PR Tasks Completed Check"
     types:
       - "completed"
 jobs:
