@@ -1,12 +1,10 @@
 name: Let workflow failed if conversation is unlocked
 on:
   workflow_run:
-    workflows: [ "PR Tasks Completed Check" ]
-    branches:
-      - '*'
-      - '!main'
+    workflows: ["PR Tasks Completed Check"]
     types:
       - completed
+
 jobs:
   on-success:
     runs-on: ubuntu-latest
