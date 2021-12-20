@@ -1,16 +1,16 @@
 name: Let workflow failed if conversation is unlocked
 on:
   workflow_run:
-    workflows: 
-      - "PR Tasks Completed Check"
+    workflows: [ "PR Tasks Completed Check" ]
     branches:
       - '*'
       - '!main'
     types:
-      - "completed"
+      - completed
 jobs:
-  check-locked:
+  on-success:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Let workflow failed if conversation is unlocked
         if: ${{github.event.pull_request.locked != true}}
